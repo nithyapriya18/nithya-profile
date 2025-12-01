@@ -116,8 +116,8 @@ function App() {
             <h2 className="section-title">About Me</h2>
             <div className="section-line"></div>
           </div>
-          <div className="about-content">
-            <div className="about-text">
+          <div className="about-content-full">
+            <div className="about-text-full">
               <p className="lead">
                 Senior Product Manager with 10+ years driving AI-powered innovation. But I'm not just a PM - 
                 I design in Figma, code in Python, and lead end-to-end product development.
@@ -133,24 +133,24 @@ function App() {
                 understand both the vision AND the execution.
               </p>
             </div>
-            <div className="about-stats">
-              <div className="stat-card">
-                <div className="stat-icon">
-                  <Briefcase size={28} />
+            <div className="about-stats-horizontal">
+              <div className="stat-card-compact">
+                <div className="stat-icon-compact">
+                  <Briefcase size={24} />
                 </div>
                 <h3>10+</h3>
                 <p>Years Experience</p>
               </div>
-              <div className="stat-card">
-                <div className="stat-icon">
-                  <Award size={28} />
+              <div className="stat-card-compact">
+                <div className="stat-icon-compact">
+                  <Award size={24} />
                 </div>
                 <h3>500K+</h3>
                 <p>Users Impacted</p>
               </div>
-              <div className="stat-card">
-                <div className="stat-icon">
-                  <Code size={28} />
+              <div className="stat-card-compact">
+                <div className="stat-icon-compact">
+                  <Code size={24} />
                 </div>
                 <h3>$6.4M</h3>
                 <p>Cost Savings</p>
@@ -235,6 +235,17 @@ function App() {
                   'Built interactive Dash Plotly dashboard to detect financial spend anomalies',
                   'Developed predictive XGBoost model optimizing clinical trial timelines with 85% accuracy',
                   'Created R-Shiny text mining app for document complexity analysis'
+                ]
+              },
+              {
+                date: 'Nov 2014 - Apr 2017',
+                title: 'Software Engineer',
+                company: 'Tech Mahindra Limited',
+                type: 'work',
+                points: [
+                  'Developed automated test scripts improving QA coverage by 35%',
+                  'Resolved 50+ critical defects using Agile, accelerating release velocity by 20%',
+                  'Collaborated with cross-functional teams on software development lifecycle'
                 ]
               }
             ].map((job, index) => (
