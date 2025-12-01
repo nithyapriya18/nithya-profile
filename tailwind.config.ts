@@ -47,16 +47,24 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        earth: {
-          brown: "hsl(var(--earth-brown))",
-          sage: "hsl(var(--sage-green))",
-          sand: "hsl(var(--sand-beige))",
-          bark: "hsl(var(--dark-bark))",
-        },
+        lavender: "hsl(var(--lavender))",
+        clay: "hsl(var(--clay))",
+        sage: "hsl(var(--sage))",
+        blueGray: "hsl(var(--blue-gray))",
+        cream: "hsl(var(--cream))",
       },
       fontFamily: {
         serif: ['Playfair Display', 'Georgia', 'serif'],
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+      },
+      letterSpacing: {
+        tight: '-0.02em',
+        normal: '-0.01em',
+      },
+      boxShadow: {
+        soft: '0 4px 24px hsl(270 25% 75% / 0.12)',
+        card: '0 8px 32px hsl(270 25% 75% / 0.16)',
+        elegant: '0 20px 60px hsl(270 25% 75% / 0.20)',
       },
       borderRadius: {
         lg: "var(--radius)",
