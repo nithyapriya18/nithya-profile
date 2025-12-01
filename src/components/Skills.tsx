@@ -31,40 +31,46 @@ const Skills = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="section-padding">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="section-padding bg-gradient-to-b from-background to-muted/20">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="space-y-12"
+          className="space-y-16"
         >
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-serif text-foreground">
-              Skills & Expertise
-            </h2>
-            <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+          <div className="text-center space-y-6">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              <h2 className="text-5xl md:text-6xl font-serif text-foreground mb-4">
+                Skills & Expertise
+              </h2>
+              <div className="w-24 h-1.5 bg-gradient-to-r from-primary via-accent to-secondary mx-auto rounded-full" />
+            </motion.div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {skillCategories.map((category, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
-                className="bg-card rounded-xl p-6 shadow-card hover-lift text-center space-y-4"
+                transition={{ delay: 0.1 + index * 0.1, duration: 0.8 }}
+                className="glass rounded-3xl p-8 hover-lift text-center space-y-6 group"
               >
-                <div className="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center">
-                  <category.icon className="w-8 h-8 text-primary" />
+                <div className="inline-flex p-5 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 group-hover:scale-110 transition-transform">
+                  <category.icon className="w-9 h-9 text-primary" />
                 </div>
-                <h3 className="text-xl font-serif text-foreground">
+                <h3 className="text-2xl font-serif text-foreground group-hover:text-primary transition-colors">
                   {category.title}
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {category.skills.map((skill, idx) => (
-                    <li key={idx} className="text-sm text-muted-foreground">
+                    <li key={idx} className="text-sm text-muted-foreground leading-relaxed">
                       {skill}
                     </li>
                   ))}

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { Briefcase } from "lucide-react";
 
 const experiences = [
   {
@@ -51,67 +52,71 @@ const Experience = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="experience" className="section-padding">
+    <section id="experience" className="section-padding bg-gradient-to-b from-muted/20 to-background">
       <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="space-y-12"
+          className="space-y-16"
         >
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-serif text-foreground">
-              Experience
-            </h2>
-            <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+          <div className="text-center space-y-6">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              <h2 className="text-5xl md:text-6xl font-serif text-foreground mb-4">
+                Experience
+              </h2>
+              <div className="w-24 h-1.5 bg-gradient-to-r from-primary via-accent to-secondary mx-auto rounded-full" />
+            </motion.div>
           </div>
 
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/30 transform md:-translate-x-1/2" />
-
-            <div className="space-y-12">
-              {experiences.map((exp, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.2 + index * 0.1, duration: 0.6 }}
-                  className={`relative flex items-center ${
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  } flex-col md:gap-8`}
-                >
-                  {/* Timeline dot */}
-                  <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background transform md:-translate-x-1/2 z-10" />
-
-                  {/* Content card */}
-                  <div className={`w-full md:w-5/12 ${index % 2 === 0 ? "md:text-right" : "md:text-left"} ml-16 md:ml-0`}>
-                    <div className="bg-card rounded-xl p-6 shadow-card hover-lift">
-                      <h3 className="text-2xl font-serif text-foreground mb-1">
-                        {exp.title}
-                      </h3>
-                      <p className="text-lg text-primary font-medium mb-2">
-                        {exp.company}
-                      </p>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        {exp.period}
-                      </p>
-                      <ul className={`space-y-2 text-sm ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
+          <div className="space-y-8">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.2 + index * 0.1, duration: 0.8 }}
+                className="relative"
+              >
+                <div className="glass rounded-3xl p-8 md:p-12 hover-lift group">
+                  <div className="flex items-start gap-6">
+                    <div className="hidden md:flex p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Briefcase className="w-7 h-7 text-primary" />
+                    </div>
+                    
+                    <div className="flex-1 space-y-4">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                        <div>
+                          <h3 className="text-2xl md:text-3xl font-serif text-foreground">
+                            {exp.title}
+                          </h3>
+                          <p className="text-lg md:text-xl text-primary font-medium mt-1">
+                            {exp.company}
+                          </p>
+                        </div>
+                        <span className="text-sm text-muted-foreground bg-muted/50 px-4 py-2 rounded-full w-fit">
+                          {exp.period}
+                        </span>
+                      </div>
+                      
+                      <ul className="space-y-3 pt-4">
                         {exp.highlights.map((highlight, idx) => (
-                          <li key={idx} className="text-foreground/80 leading-relaxed">
-                            • {highlight}
+                          <li key={idx} className="flex items-start gap-3 text-foreground/80 leading-relaxed">
+                            <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                            <span>{highlight}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
-
-                  {/* Spacer for alternating layout */}
-                  <div className="hidden md:block w-5/12" />
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>
