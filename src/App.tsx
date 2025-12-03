@@ -738,7 +738,7 @@ function App() {
 
       <footer className="footer">
         <div className="container">
-          <p>&copy; 2024 Nithyapriya Veeraraghavan. All rights reserved.</p>
+          <p>&copy; 2025 Nithyapriya Veeraraghavan. All rights reserved.</p>
         </div>
       </footer>
     </div>
